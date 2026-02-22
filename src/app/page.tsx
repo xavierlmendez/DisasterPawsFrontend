@@ -1,65 +1,104 @@
-import Image from "next/image";
+import Link from 'next/link';
 
-export default function Home() {
+const features = [
+  {
+    title: 'Quick Reporting',
+    description:
+      'Simple, touch-friendly forms optimized for mobile devices with large tap targets and minimal data entry requirements.',
+  },
+  {
+    title: 'Photo Upload & Search',
+    description:
+      'Upload photos directly from your phone or paste external URLs. Search by microchip ID, area, species, and owner information.',
+  },
+  {
+    title: 'Care Tracking',
+    description:
+      'Track vet visits, foster assignments, feeder schedules, and medical conditions with detailed notes and status updates.',
+  },
+  {
+    title: 'Team Coordination',
+    description:
+      'Assign trappers, feeders, and foster contacts. Track ownership of tasks and coordinate rescue efforts in one place.',
+  },
+  {
+    title: 'Location Tracking',
+    description:
+      'Record GPS coordinates, area notes, addresses, and map references for organized and repeatable search efforts.',
+  },
+  {
+    title: 'Owner Reunion',
+    description:
+      'Privacy-controlled owner contact details with consent-aware workflows for quick reunification communication.',
+  },
+];
+
+export default function LandingPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="min-h-screen bg-sky-50 text-slate-900">
+      <div className="mx-auto max-w-7xl px-6 py-10 md:px-10 md:py-14 space-y-16">
+        <section className="rounded-2xl border border-blue-200 bg-gradient-to-b from-white to-blue-50 p-8 md:p-12 shadow-sm">
+          <p className="text-xs uppercase tracking-[0.2em] text-blue-600">DisasterPaws</p>
+          <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+            Reuniting lost animals with their families after natural disasters
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-4 max-w-3xl text-slate-700 text-lg">
+            A field-ready platform for emergency responders, veterinarians, and shelter volunteers to track, care for,
+            and reunite found animals with their owners during disaster recovery.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/login"
+              className="rounded-lg bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-500"
+            >
+              Get Started
+            </Link>
+            <a href="#features" className="rounded-lg border border-blue-200 bg-white px-5 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50">
+              Learn More
+            </a>
+            <Link href="/review-queue" className="rounded-lg border border-blue-200 bg-white px-5 py-3 text-sm font-medium text-slate-700 hover:bg-blue-50">
+              Ops Dashboard
+            </Link>
+          </div>
+        </section>
+
+        <section id="features" className="space-y-5">
+          <div>
+            <h2 className="text-2xl font-semibold text-slate-900 md:text-3xl">Built for Emergency Response</h2>
+            <p className="mt-2 text-slate-700">
+              Mobile-first tools designed for stressed users working in challenging field conditions.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {features.map((feature) => (
+              <article key={feature.title} className="rounded-xl border border-blue-100 bg-white p-5 shadow-sm">
+                <h3 className="text-lg font-semibold text-blue-700">{feature.title}</h3>
+                <p className="mt-2 text-sm text-slate-700 leading-relaxed">{feature.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="rounded-2xl border border-blue-200 bg-blue-50 p-8 md:p-10 shadow-sm">
+          <h2 className="text-2xl font-semibold text-slate-900">Ready to Help Animals in Crisis?</h2>
+          <p className="mt-2 text-slate-700 max-w-3xl">
+            Join emergency response teams, shelters, and volunteers using DisasterPaws to reunite families with their beloved pets after natural disasters.
+          </p>
+          <div className="mt-6 flex gap-3">
+            <Link
+              href="/login"
+              className="rounded-lg bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-500"
+            >
+              Start Helping Now
+            </Link>
+            <Link href="/incidents" className="rounded-lg border border-blue-200 bg-white px-5 py-3 text-sm font-medium text-slate-700 hover:bg-blue-100">
+              Open Incident Queue
+            </Link>
+          </div>
+        </section>
+      </div>
+    </main>
   );
 }
