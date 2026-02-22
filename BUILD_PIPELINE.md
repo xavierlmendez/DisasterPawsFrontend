@@ -81,15 +81,7 @@ A change is validation-ready when all are true:
 Validate these pages load without crash:
 - `/`
 - `/login`
-- `/incidents`
-- `/review-queue`
-- `/assignments`
-- `/communications`
-- `/anomalies`
-- `/reports/daily`
-- `/settings/users`
-- `/settings/resources`
-- `/settings/models`
+- `/dashboard`
 
 ---
 

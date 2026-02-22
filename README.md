@@ -41,3 +41,6 @@ For development and validation workflow, see: `/Users/xaviermendez/Desktop/Devel
 ## Project Build Pipeline
 For project-specific build + validation steps, see: `./BUILD_PIPELINE.md`
 
+## Codebase Interaction
+For how changes should be introduced and validated in this repo, see: `./docs/CODEBASE_INTERACTION.md` and `./docs/UI_ARCHITECTURE.md`
+

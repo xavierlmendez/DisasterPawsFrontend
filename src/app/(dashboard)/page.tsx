@@ -1,3 +1,0 @@
-export default function OpsOverviewPage() {
-  return <main className="p-6"><h1 className="text-2xl font-semibold">Ops Overview</h1></main>;
-}
